@@ -1,27 +1,26 @@
 #include <stdio.h>
+#include <locale.h>
 #include <windows.h>
 
-char wd[255];
-char program[255];
-char args[255];
+char wd[255], program[255], args[255];
 
-int main()
+
+int wmain()
 {
    system("title SimpleRunBox");
-   printf("Enter path to the program\n");
-   gets(program);
+   wprintf(L"Enter path to the program\n");
+   _getws(program);
    system("cls");
-   printf("Enter what do (for example: open, runas)\n");
-   gets(wd);
+   wprintf(L"Enter what do (for example: open, runas)\n");
+   _getws(wd);
    system("cls");
-   printf("Enter arguments\n");
-   gets(args);
+   wprintf(L"Enter arguments\n");
+   _getws(args);
    system("cls");
-   printf("Summary:\n");
-   printf("Program: %s\n", program);
-   printf("What do with the program: %s\n", wd);
-   printf("Arguments: %s\n", args);
+   wprintf(L"Summary:\n");
+   wprintf(L"Program: %ls\n", program);
+   wprintf(L"What do with the program: %ls\n", wd);
+   wprintf(L"Arguments: %ls\n", args);
    system("pause");
-   ShellExecuteA(NULL, wd, program, args, NULL, SW_RESTORE);
+   ShellExecuteW(NULL, wd, program, args, NULL, SW_RESTORE);
 }
-
