@@ -6,4 +6,4 @@
 # [Download Source code](https://github.com/Svyatik-Bak/SimpleRunBox/archive/refs/tags/1.1.zip)
 
 # Compiling
-gcc.exe <path to main.c> <path to icon.o> -o <output path> -municode
+```gcc.exe <path to main.c> <path to icon.o> -o <output path> -municode```
