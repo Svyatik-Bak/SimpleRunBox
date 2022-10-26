@@ -1,12 +1,16 @@
 #include <stdio.h>
-#include <locale.h>
 #include <windows.h>
 
-char wd[255], program[255], args[255];
+wchar_t wd[255], program[255], args[255];
 
-
-int wmain()
+int wmain(int argc, wchar_t *argv[], wchar_t *argv2[])
 {
+   if (argc > 1)
+   {
+	   ShellExecuteW(NULL, L"runas", argv[1], argv[2], NULL, SW_RESTORE);
+   }
+   if (argc < 2)
+   {
    system("title SimpleRunBox");
    wprintf(L"Enter path to the program\n");
    _getws(program);
@@ -23,4 +27,5 @@ int wmain()
    wprintf(L"Arguments: %ls\n", args);
    system("pause");
    ShellExecuteW(NULL, wd, program, args, NULL, SW_RESTORE);
+   }
 }
